@@ -1,6 +1,6 @@
 #include "HOS.h"
 
-unsigned char *memcpy(unsigned char *dest, const unsigned char *src, int count)
+uint8 *memcpy(uint8 *dest, const uint8 *src, int count)
 {
     int i = 0;
 start_cpy:
@@ -13,7 +13,7 @@ start_cpy:
     *  'dest', finally return 'dest' */
 }
 
-unsigned char *memset(unsigned char *dest, unsigned char val, int count)
+uint8 *memset(uint8 *dest, uint8 val, int count)
 {
     int i = 0;
 start_set:
@@ -26,7 +26,7 @@ start_set:
     *  Again, return 'dest' */
 }
 
-unsigned short *memsetw(unsigned short *dest, unsigned short val, int count)
+uint16 *memsetw(uint16 *dest, uint16 val, int count)
 {
     int i = 0;
 start_set:
@@ -54,9 +54,9 @@ int strlen(const char *str)
 /* We will use this later on for reading from the I/O ports to get data
 *  from devices such as the keyboard. We are using what is called
 *  'inline assembly' in these routines to actually do the work */
-unsigned char inportb (unsigned short _port)
+uint8 inportb (uint16 _port)
 {
-    unsigned char rv;
+    uint8 rv;
     __asm__ __volatile__ ("inb %1, %0" : "=a" (rv) : "dN" (_port));
     return rv;
 }
@@ -65,7 +65,7 @@ unsigned char inportb (unsigned short _port)
 *  will be used in the next tutorial for changing the textmode cursor
 *  position. Again, we use some inline assembly for the stuff that simply
 *  cannot be done in C */
-void outportb (unsigned short _port, unsigned char _data)
+void outportb (uint16 _port, uint8 _data)
 {
     __asm__ __volatile__ ("outb %1, %0" : : "dN" (_port), "a" (_data));
 }

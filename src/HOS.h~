@@ -12,11 +12,11 @@ typedef unsigned long long sint64;
 
 
 /* MAIN.C */
-extern uint8 *memcpy(uint8 *dest, const uint8 *src, int count);
-extern uint8 *memset(uint8 *dest, uint8 val, int count);
-extern uint16 *memsetw(uint16 *dest, uint16 val, int count);
+extern unsigned char *memcpy(uint8 *dest, const uint8 *src, int count);
+extern unsigned char *memset(uint8 *dest, uint8 val, int count);
+extern unsigned short *memsetw(uint16 *dest, uint16 val, int count);
 extern int strlen(const char *str);
-extern uint8 inportb (uint16 _port);
+extern unsigned char inportb (uint16 _port);
 extern void outportb (uint16 _port, uint16 _data);
 
 #endif
